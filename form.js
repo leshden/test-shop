@@ -3,13 +3,19 @@ const submitBtn = document.getElementById("btnSubmit");
 const inputName = document.querySelector(".input-name");
 const inputPhone = document.querySelector(".input-phone");
 
-function onClickCloseForm() {
+function HideForm() {
   formCard.classList.remove('show-form');
+}
+
+function onClickCloseForm() {
+  HideForm();
 }
 
 function onSubmitForm() {
   if (CheckData()) {
     //отправить
+    ym('form-submit','reachGoal', 'ubmit_item');
+    HideForm();
   }
 }
 
