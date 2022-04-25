@@ -1,4 +1,5 @@
 document.body.onload = addElement;
+let dataArray = [];
 
 function addListItems(element) {
 
@@ -7,14 +8,16 @@ function addListItems(element) {
   req.responseType = 'json';
   req.onreadystatechange = () => {
     if (req.readyState == XMLHttpRequest.DONE) {
+      dataArray = req.response.record;
 
-      const countCards = req.response.record.length;
+      const countCards = dataArray.length;
 
       for (let i = 0; i < countCards; i++) {
-        const cardContent = req.response.record[i];
-        element.appendChild(AddCard(cardContent));
+        const cardContent = dataArray[i];
+        let card = AddCard(cardContent);
+        card.id = i;
+        element.appendChild(card);
       }
-
     }
   };
 

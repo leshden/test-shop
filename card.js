@@ -23,13 +23,10 @@ function AddCardContent(element, content) {
   priceEl.className = 'card-item-content-price';
   priceEl.textContent = content.price;
   element.appendChild(priceEl);
-
-  // element.appendChild(div);
 }
 
-function OnClick() {
-  console.log('Click Card!');
-  formCard.classList.add('show-form');
+function OnClick(event) {
+  ShowForm(this.id);
 }
 
 function AddCard(content) {
