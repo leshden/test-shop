@@ -1,3 +1,5 @@
+const formCard = document.querySelector(".form-card");
+
 function AddCardContent(element, content) {
   // let div = document.createElement("div");
   // cardDiv.className = 'card-item-content';
@@ -25,9 +27,14 @@ function AddCardContent(element, content) {
   // element.appendChild(div);
 }
 
+function OnClick() {
+  console.log('Click Card!');
+  formCard.classList.add('show-form');
+}
 
 function AddCard(content) {
   let cardDiv = document.createElement("div");
+  cardDiv.onclick = OnClick;
   cardDiv.className = 'card-item';
   AddCardContent(cardDiv, content);
   return cardDiv;
